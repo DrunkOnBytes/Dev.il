@@ -4,6 +4,7 @@ import 'package:flutter_chat_app/custom/auth.dart';
 import 'dart:io';
 
 class SignInButton extends StatefulWidget {
+
   @override
   _SignInButtonState createState() => _SignInButtonState();
 }

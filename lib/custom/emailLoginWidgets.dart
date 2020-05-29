@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:io';
 
 class EmailLogin extends StatefulWidget {
+
   @override
   _EmailLoginState createState() => _EmailLoginState();
 }
@@ -84,7 +85,6 @@ class _EmailLoginState extends State<EmailLogin> {
         final result = await InternetAddress.lookup('google.com');
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
           if (_isLoginForm){
-
             user = await signInWithEmailAndPassword(email, password);
             if (user.email!=null){
               Navigator.of(context).push(
@@ -98,7 +98,6 @@ class _EmailLoginState extends State<EmailLogin> {
             }
           }
           else{
-
             user = await createUserWithEmailAndPassword(email, password);
             if (user.email!=null){
               Navigator.of(context).push(
@@ -111,6 +110,7 @@ class _EmailLoginState extends State<EmailLogin> {
                   .catchError(onError);
             }
           }
+          _formKey.currentState.reset();
         }
       } on SocketException catch (_) {
         final snackBar = SnackBar(
